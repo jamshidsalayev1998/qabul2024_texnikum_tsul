@@ -1,0 +1,1 @@
+# qabul2024_texnikum_tsul
