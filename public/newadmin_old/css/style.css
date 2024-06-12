@@ -1,0 +1,570 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Open Sans;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+div.fixn {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.4;
+}
+
+div.all_page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+div.all_page nav {
+  width: 20%;
+  height: 100vh;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  position: relative;
+  z-index: 12;
+}
+
+div.all_page nav span.close_nav {
+  display: none;
+}
+
+div.all_page nav span.close_nav i {
+  color: #fff;
+  font-size: 20px;
+}
+
+div.all_page nav div.log {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #288FDA;
+  padding: 15px;
+}
+
+div.all_page nav div.log div.nomer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.all_page nav div.log div.nomer i {
+  color: #fff;
+  font-size: 20px;
+}
+
+div.all_page nav div.log div.nomer h2 {
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 21px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 15px;
+  margin-bottom: 0px;
+  color: #FFFFFF;
+}
+
+div.all_page nav div.log span.close {
+  cursor: pointer;
+}
+
+div.all_page nav div.log div.green_bars {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+  cursor: pointer;
+}
+
+div.all_page nav div.menu {
+  height: 100%;
+  position: relative;
+  padding: 0px 10px;
+  background: -webkit-gradient(linear, right top, left top, from(#172B4C), to(#253858));
+  background: linear-gradient(270deg, #172B4C 0%, #253858 100%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+div.all_page nav div.menu span.title_menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 13px 12px;
+}
+
+div.all_page nav div.menu span.title_menu b {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: #C9C9C9;
+}
+
+div.all_page nav div.menu a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 8px 12px;
+  color: #FFFFFF;
+  -webkit-transition: 0s;
+  transition: 0s;
+  border: 1px solid #DCDCDC;
+  border-radius: 2px;
+}
+
+div.all_page nav div.menu a i {
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+div.all_page nav div.menu a:hover {
+  background-color: #4997CF;
+  border-radius: 5px;
+  border: 1px solid #4997CF;
+}
+
+div.all_page nav.nav_nav {
+  width: 0%;
+  overflow: hidden;
+}
+
+div.all_page div.right_content {
+  width: 80%;
+  height: 100vh;
+  position: relative;
+  background-color: #FBFDFA;
+}
+
+div.all_page div.right_content span.bars_menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  cursor: pointer;
+  display: none;
+}
+
+div.all_page div.right_content div.site_all_content {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+div.all_page div.right_nav {
+  width: 100%;
+}
+
+header.site {
+  padding: 11px 15px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 4;
+  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #288FDA;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header.site span.bars_nav {
+  cursor: pointer;
+}
+
+header.site span.bars_nav i {
+  color: #fff;
+  font-size: 24px;
+  margin-top: 3px;
+}
+
+header.site span.bars_mobile {
+  cursor: pointer;
+  display: none;
+}
+
+header.site span.bars_mobile i {
+  color: #fff;
+  font-size: 20px;
+  margin-top: 3px;
+}
+
+header.site h1 {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin-bottom: 0px;
+  color: #FFFFFF;
+}
+
+header.site div.logout a {
+  margin-left: 15px;
+}
+
+header.site div.logout a b {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #FFFFFF;
+}
+
+div.site_all_content {
+  background: url(../img/FON.jpg) repeat;
+}
+
+div.endi_done div.back_div {
+  padding: 25px 45px;
+}
+
+div.endi_done div.back_div div.tab_content aside:not(.active) {
+  display: none;
+}
+
+div.endi_done div.back_div div.tab_content aside {
+  background-color: #fff;
+  width: 100%;
+}
+
+div.endi_done div.back_div div.tab_content aside select {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+div.endi_done div.back_div div.tab_content aside table {
+  width: 100%;
+}
+
+div.endi_done div.back_div div.tab_content aside table th {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #7A7A7A;
+  padding: 12px;
+  text-align: center;
+}
+
+div.endi_done div.back_div div.tab_content aside table td {
+  font-weight: normal;
+  font-size: 14px;
+  text-align: center;
+  line-height: 19px;
+  padding: 12px;
+  color: #313131;
+}
+
+div.endi_done div.back_div div.tab_content aside table th, div.endi_done div.back_div div.tab_content aside table td {
+  border: 1px solid #4997CF;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_info {
+  padding: 10px 8px;
+  font-weight: 350;
+  font-size: 14px;
+  line-height: 19px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: #000000;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_paginate {
+  padding: 10px 25px;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_paginate a {
+  background: #FFFFFF;
+  border: 1px solid #00A3FF;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  padding: 4px 9px;
+  font-weight: 350;
+  font-size: 14px;
+  line-height: 19px;
+  color: #00A3FF;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_paginate a.current {
+  background-color: #00A3FF;
+  color: #fff;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_wrapper .dataTables_length {
+  width: 50%;
+  padding: 7px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_wrapper .dataTables_length label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 350;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 0px;
+  color: #000000;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_wrapper .dataTables_length label select {
+  height: 22px;
+  margin: 0px 5px;
+  border-radius: 0px !important;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_wrapper .dataTables_filter {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 7px 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_wrapper .dataTables_filter #text {
+  display: none !important;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_wrapper .dataTables_filter label {
+  margin-bottom: 0px;
+}
+
+div.endi_done div.back_div div.tab_content aside .dataTables_wrapper .dataTables_filter input {
+  height: 30px;
+  border: 1px solid #B6B6B6;
+  padding-left: 10px;
+}
+
+div.endi_done div.back_div div.tab_index {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.endi_done div.back_div div.tab_index a.export_pdf {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  display: block;
+  color: #FFFFFF;
+  background: #3959FF;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  height: 25px;
+  padding: 0px 25px;
+}
+
+div.endi_done div.back_div div.tab_index ul {
+  margin-bottom: 0px;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.endi_done div.back_div div.tab_index ul li {
+  display: inline-block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  padding: 15px 25px;
+  background: #4997CF;
+  border-radius: 10px 10px 0px 0px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+div.endi_done div.back_div div.tab_index ul li.act_li {
+  background-color: #fff;
+  color: #0065FC;
+}
+
+div.endi_done div.test_done {
+  height: 50px;
+}
+
+div.endi_done div.applicants {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 45px;
+}
+
+div.endi_done div.applicants div.row_app {
+  width: 22%;
+  border-radius: 5px;
+}
+
+div.endi_done div.applicants div.row_app h3 {
+  text-align: center;
+  font-weight: 350;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 10px 0px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+div.endi_done div.applicants div.row_app div.bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid #fff;
+}
+
+div.endi_done div.applicants div.row_app div.bottom h4 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin-bottom: 0px;
+  color: #FFFFFF;
+  margin: 8px 0px;
+}
+
+div.endi_done div.applicants div.one {
+  background-color: #288FDA;
+}
+
+div.endi_done div.applicants div.two {
+  background-color: #26d316;
+}
+
+div.endi_done div.applicants div.three {
+  background-color: #e62d2d;
+}
+
+div.endi_done div.applicants div.four {
+  background-color: orange;
+}
+/*# sourceMappingURL=style.css.map */
