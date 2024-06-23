@@ -55,8 +55,8 @@ class PetitionController extends Controller
             return redirect(route('petition.status'));
         } else {
 
-            $date = '2023-07-25 23:59:59';
-            if (false) {
+            $date = '2026-06-23 14:10:00';
+            if (date('Y-m-d H:i:s') > $date) {
                 $country = Country::where('status', 1)->get();
                 $typeschool = Typeschool::query()->where('name_uz', 'Texnikum')->get();
                 $endegree = Endegree::query()->where('filtr', 1)->get();

@@ -24,19 +24,21 @@ class SmsSendService
                 'recipient' => $phone,
                 'message-id' => RandomStringService::randomNumberHelper(10),
                 'sms' => [
-                    'originator' => 'TSUL',
+                    'originator' => '3700',
                     'content' => [
                         'text' => $text
                     ]
                 ]
             ]
         ];
+        echo "Headers: " . print_r($headers, true);
+echo "Body: " . json_encode($body, JSON_PRETTY_PRINT);
         $client = new Client();
         try{
             $status = 1;
             $response = $client->post($url, [
-                RequestOptions::HEADERS => $headers,
                 RequestOptions::JSON => $body,
+                'headers' => $headers
             ]);
             $message = 'success';
             $data = json_decode($response->getBody()->getContents(),true);
@@ -48,7 +50,12 @@ class SmsSendService
                     'line' => $exception->getLine()
                 ],
                 'body' => $body,
-                'url' => $url
+                'url' => $url,
+                'headers' => $headers,
+                'auth' => [
+                    'username' => $username,
+                    'password' => $password
+                ]
             ];
             $message = 'error while sending request';
         }
