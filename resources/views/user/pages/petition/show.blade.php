@@ -471,6 +471,19 @@
                                                     </h3>
                                                     <h4>{{ $petition->getLanguagetype()->$name_l }}</h4>
                                                 </div>
+                                                @if ($petition->getEdutype()->id == 1)
+
+                                                <div class="row_info">
+                                                    <h3>@lang('petition.Faculties')<b
+                                                    class="error"></b>
+                                                </h3>
+                                                <h4> @if ($petition->direction)
+                                                    {{ $petition->direction->$name_l }}
+                                                    @else
+                                                    -----------
+                                                    @endif </h4>
+                                                </div>
+                                                @endif
 
 
                                             </div>

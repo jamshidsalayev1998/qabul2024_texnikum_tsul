@@ -1,1 +1,1 @@
-# qabul2024_texnikum_tsul
+# qabul2024_lyceum_tsul

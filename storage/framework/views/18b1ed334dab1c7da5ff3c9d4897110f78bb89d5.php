@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
     <style>
         .hidden_document {
@@ -603,7 +601,7 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?></b></h2>
-                            <select class="form-control" id="faculty_type_edu" name="type_education_id"
+                            <select class="form-control edu_type_select" id="faculty_type_edu" name="type_education_id"
                                     style="width: 100%;">
                                 <?php $__currentLoopData = $edutypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option <?php if(old('type_education_id') == $item): ?> selected
@@ -645,6 +643,25 @@ unset($__errorArgs, $__bag); ?></b></h2>
                                 <?php endif; ?>
                             </select>
                         </div>
+                        <div class="divinput directions_div" id="directions_div">
+                            <h2><?php echo app('translator')->get('petition.Faculties'); ?> <span class="color-red">*</span>
+                                <b><?php $__errorArgs = ['direction_id'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    ! <?php echo e($message); ?> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?></b></h2>
+                            <select class="form-control" id="direction_id" name="direction_id"
+                                    style="width: 100%;">
+                                <?php $__currentLoopData = $directions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $direction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option <?php if(old('direction_id') == $direction->id): ?> selected
+                                            <?php endif; ?> value="<?php echo e($direction->id); ?>"><?php echo e($direction->$name_l); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                        </div>
                         <div class="divinput">
                             <h2><?php echo app('translator')->get('petition.Tavfsiyanoma nusxasi'); ?> <b><?php $__errorArgs = ['recommendation'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -679,180 +696,8 @@ unset($__errorArgs, $__bag); ?></b></h2>
                     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="send">
                 <button type="submit" class="send_btn"><?php echo app('translator')->get('petition.Send'); ?></button>
@@ -869,6 +714,19 @@ unset($__errorArgs, $__bag); ?></b></h2>
 
         var notf = "<?php echo app('translator')->get('petition.Please select file size smaller from 4Mb'); ?>";
         $(document).ready(function () {
+            function toggleDirectionsDiv() {
+            if ($('#faculty_type_edu').val() == '3') {
+                $('#directions_div').hide();
+            } else {
+                $('#directions_div').show();
+            }
+        }
+
+        // Initial check
+        toggleDirectionsDiv();
+
+        // Add event listener for change
+        $('#faculty_type_edu').on('change', toggleDirectionsDiv);
             $('#image_doc').bind('change', function () {
                 var a = (this.files[0].size);
                 // alert(a);

@@ -456,7 +456,7 @@
                             <h2>@lang('petition.Type of Education') <span class="color-red">*</span>
                                 <b>@error('type_education_id')
                                     ! {{ $message }} @enderror</b></h2>
-                            <select class="form-control" id="faculty_type_edu" name="type_education_id"
+                            <select class="form-control edu_type_select" id="faculty_type_edu" name="type_education_id"
                                     style="width: 100%;">
                                 @foreach($edutypes as $item)
                                     <option @if(old('type_education_id') == $item) selected
@@ -491,6 +491,18 @@
                                 @endif
                             </select>
                         </div>
+                        <div class="divinput directions_div" id="directions_div">
+                            <h2>@lang('petition.Faculties') <span class="color-red">*</span>
+                                <b>@error('direction_id')
+                                    ! {{ $message }} @enderror</b></h2>
+                            <select class="form-control" id="direction_id" name="direction_id"
+                                    style="width: 100%;">
+                                @foreach($directions as $direction)
+                                    <option @if(old('direction_id') == $direction->id) selected
+                                            @endif value="{{ $direction->id }}">{{ $direction->$name_l }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="divinput">
                             <h2>@lang('petition.Tavfsiyanoma nusxasi') <b>@error('recommendation')
                                     ! {{ @message }} @enderror</b></h2>
@@ -516,183 +528,11 @@
                         </div>
 
                     </div>
-{{--                    <div class="col-md-6">--}}
-{{--                        <div class="divinput">--}}
-{{--                            <h2>@lang('petition.Mehnat daftarchasi (magistrlar uchun)') <b>@error('workbook')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <div class="col-md-6">--}}
-{{--                                <div class="divinput">--}}
-{{--                                    <h2>@lang('petition.Mehnat daftarchasi nusxasini yuklang') </h2>--}}
-{{--                                    <div class="chose_file upload-button7">--}}
-{{--                                        <b>@lang('petition.Choose file')</b>--}}
-{{--                                    </div>--}}
-{{--                                    <input type="file" class="file-upload7" hidden id="workbook"--}}
-{{--                                           accept="image/x-png,image/jpeg,application/pdf" name="workbook">--}}
-{{--                                </div>--}}
 
-{{--                            </div>--}}
-{{--                            <div class="col-md-12">--}}
-{{--                                <div class="big_img2">--}}
-{{--                                    <img src="" class="profile-pic7" alt="">--}}
-{{--                                    <iframe id="iframePdf" style="display: block; width: 100%; height: auto" src=""--}}
-{{--                                            class="profile-pic7-pdf" src=""></iframe>--}}
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput">--}}
-{{--                            <h2>@lang('petition.Disability status') <b>@error('disability_status_id')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <select class="form-control" name="disability_status_id" style="width: 100%;">--}}
-{{--                                @foreach($disability as $item)--}}
-
-{{--                                    <option @if(old('disability_status_id') == $item) selected--}}
-{{--                                            @endif @if($item->name_en == 'No') selected--}}
-{{--                                            @endif value="{{ $item->id }}">{{ $item->$name_l }}</option>--}}
-{{--                                @endforeach--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="divinput">--}}
-{{--                            <h2>@lang('petition.Disability description') <b>@error('disability_description')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <textarea class="latyn_address fluid" name="disability_description" cols="30"--}}
-{{--                                      rows="10">{{ old('disability_description') }}</textarea>--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput">--}}
-{{--                            <h2>@lang('petition.olympics') <b>@error('olympics')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input class="form-control input_requireds" name="olympics">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
 
                 </div>
             </div>
-{{--            <div class="form_one">--}}
-{{--                <div class="top">--}}
-{{--                    <b>@lang('petition.Qo`shimcha hujjarlar')</b>--}}
-{{--                </div>--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-md-12 conversation_language_div">--}}
-{{--                        <div class="divinput">--}}
-{{--                            <h2>@lang('petition.Suhbat tili') <b>@error('conversation_language')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <select class="form-control" name="conversation_language" style="width: 100%;">--}}
-{{--                                <option value="1">O'zbek tilida</option>--}}
-{{--                                <option value="2">Rus tilida</option>--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-md-12">--}}
-{{--                        <div class="divinput punkt" style="display: none">--}}
-{{--                            <h2>@lang('petition.Punkt') <b>@error('punkt')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <div class="form-group d-flex">--}}
-{{--                                <input type="radio" style="opacity: 1;position: relative;width: 25px" id="punkt1"--}}
-{{--                                       name="punkt" value="1">--}}
-{{--                                <label for="punkt1" class="clickPunkt">“yurisprudensiya” ta’lim yo‘nalishi bo‘yicha--}}
-{{--                                    bakalavriatni “imtiyozli”--}}
-{{--                                    diplom bilan tugatgan bitiruvchilar hamda bazaviy oliy yuridik ma’lumotga ega,--}}
-{{--                                    yuridik texnikumlar va TDYU huzuridagi akademik litseyda kamida uch yil ishlagan--}}
-{{--                                    pedagog va rahbar xodimlar uchun.</label>--}}
-{{--                            </div>--}}
-{{--                            <div class="form-group d-flex">--}}
-{{--                                <input type="radio" style="opacity: 1;position: relative;width: 40px" id="punkt2"--}}
-{{--                                       name="punkt" value="2">--}}
-{{--                                <label for="punkt2" class="clickPunkt">tegishli davlat organi birinchi rahbarining--}}
-{{--                                    tavsiyasi asosida bazaviy--}}
-{{--                                    oliy yuridik ma’lumot hamda davlat hokimiyati va boshqaruvining markaziy organlarida--}}
-{{--                                    yuridik mutaxassislik bo‘yicha kamida besh yil ish stajiga ega bo‘lgan rahbar--}}
-{{--                                    xodimlar hamda bazaviy oliy yuridik ma’lumotga ega, yuridik texnikumlar va TDYU--}}
-{{--                                    huzuridagi akademik litseyda kamida uch yil ishlagan pedagog va rahbar xodimlar--}}
-{{--                                    uchun.</label>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput punkt" style="display: none">--}}
-{{--                            <h2>@lang('petition.Ish faoliyati') <b>@error('labor_activity')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="text" name="labor_activity">--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput forpunkt2" style="display: none">--}}
-{{--                            <input type="checkbox" id="uio" style="opacity: 1; position: relative" >--}}
-{{--                            <label for="uio">@lang('petition.3 yil ishlash majburiyati') <b></b></label>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-md-6 bor_right">--}}
-{{--                        <div class="divinput document_input en_passport_copy_translate hidden_document">--}}
-{{--                            <h2>@lang('petition.Passport tarjima') <b>@error('passport_copy_translate')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="file" accept="application/pdf" class="form-control input_requireds"--}}
-{{--                                   name="passport_copy_translate">--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput document_input en_birth_certificate_copy hidden_document">--}}
-{{--                            <h2>@lang('petition.Tugilganlik haqida guvohnoma') <b>@error('birth_certificate_copy')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="file" accept="application/pdf" class="form-control input_requireds"--}}
-{{--                                   name="birth_certificate_copy">--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput document_input en_birth_certificate_copy_translate hidden_document">--}}
-{{--                            <h2>@lang('petition.Tugilganlik haqida guvohnoma tarjimasi')--}}
-{{--                                <b>@error('birth_certificate_copy_translate')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="file" accept="application/pdf" class="form-control input_requireds"--}}
-{{--                                   name="birth_certificate_copy_translate">--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput document_input en_edu_document_copy_translate hidden_document">--}}
-{{--                            <h2>@lang('petition.Talim haqida hujjat tarjima')--}}
-{{--                                <b>@error('birth_certificate_copy_translate')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="file" accept="application/pdf" class="form-control input_requireds"--}}
-{{--                                   name="edu_document_copy_translate">--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput document_input en_med_form_copy_086 hidden_document">--}}
-{{--                            <h2>@lang('petition.086 tibbiyot malumotnomasi') <b>@error('med_form_copy_086')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="file" accept="application/pdf" class="form-control input_requireds"--}}
-{{--                                   name="med_form_copy_086">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-md-6">--}}
 
-{{--                        <div class="divinput document_input en_med_form_copy_086_translate hidden_document">--}}
-{{--                            <h2>@lang('petition.086 tibbiyot malumotnomasi tarjima')--}}
-{{--                                <b>@error('med_form_copy_086_translate')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="file" accept="application/pdf" class="form-control input_requireds"--}}
-{{--                                   name="med_form_copy_086_translate">--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput document_input en_vich_copy hidden_document">--}}
-{{--                            <h2>@lang('petition.OIV infektsiyasi yo`qligi to`g`risidagi guvohnoma')--}}
-{{--                                <b>@error('vich_copy')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="file" accept="application/pdf" class="form-control input_requireds"--}}
-{{--                                   name="vich_copy">--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput document_input en_vich_copy_translate hidden_document">--}}
-{{--                            <h2>@lang('petition.OIV infektsiyasi yo`qligi to`g`risidagi guvohnoma tarjima')--}}
-{{--                                <b>@error('vich_copy_translate')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="file" accept="application/pdf" class="form-control input_requireds"--}}
-{{--                                   name="vich_copy_translate">--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput document_input en_med_form_copy_063 hidden_document">--}}
-{{--                            <h2>@lang('petition.063 tibbiyot malumotnomasi') <b>@error('med_form_copy_063')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="file" accept="application/pdf" class="form-control input_requireds"--}}
-{{--                                   name="med_form_copy_063">--}}
-{{--                        </div>--}}
-{{--                        <div class="divinput document_input en_med_form_copy_063_translate hidden_document">--}}
-{{--                            <h2>@lang('petition.063 tibbiyot malumotnomasi tarjima')--}}
-{{--                                <b>@error('med_form_copy_063_translate')--}}
-{{--                                    ! {{ @message }} @enderror</b></h2>--}}
-{{--                            <input type="file" accept="application/pdf" class="form-control input_requireds"--}}
-{{--                                   name="med_form_copy_063_translate">--}}
-{{--                        </div>--}}
-
-{{--                    </div>--}}
-
-{{--                </div>--}}
-{{--            </div>--}}
             <div class="send">
                 <button type="submit" class="send_btn">@lang('petition.Send')</button>
             </div>
@@ -708,6 +548,19 @@
 
         var notf = "@lang('petition.Please select file size smaller from 4Mb')";
         $(document).ready(function () {
+            function toggleDirectionsDiv() {
+            if ($('#faculty_type_edu').val() == '3') {
+                $('#directions_div').hide();
+            } else {
+                $('#directions_div').show();
+            }
+        }
+
+        // Initial check
+        toggleDirectionsDiv();
+
+        // Add event listener for change
+        $('#faculty_type_edu').on('change', toggleDirectionsDiv);
             $('#image_doc').bind('change', function () {
                 var a = (this.files[0].size);
                 // alert(a);

@@ -38,7 +38,7 @@ class PetitionsExport implements FromView, ShouldAutoSize
             'english_degree_student:id,name_uz,name_ru,name_en',
             'faculty:id,name_uz,name_ru,name_en',
             'disability_status:id,name_uz,name_ru,name_en',
-            'user',
+            'user','direction'
         ])
         ->where(function ($query) {
             $user = Auth::user();

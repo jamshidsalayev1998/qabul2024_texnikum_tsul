@@ -37,7 +37,7 @@ class PetitionWaitExport implements FromView, ShouldAutoSize, ShouldQueue
             'english_degree_student:id,name_uz,name_ru,name_en',
             'faculty:id,name_uz,name_ru,name_en',
             'disability_status:id,name_uz,name_ru,name_en',
-            'user',
+            'user','direction'
         ])
         ->where('status', 0)->where(function ($query) {
             $user = Auth::user();

@@ -23,7 +23,7 @@ class Petition extends Model
 //        'address' => ['required','min:2','max:255' ],
 //        'citizenship' => ['required','min:2','max:255'],
 //        'nationality' => ['required','min:2','max:255'],
-        'passport_seria' => ['required','min:2','max:50'],
+        'passport_seria' => ['required','min:2','max:50', 'unique:petitions,passport_seria'],
         'passport_image' => ['required' ],
 //        'mobile_phone' => ['required'],
 //        'home_phone' =>  ['required'],
@@ -40,6 +40,7 @@ class Petition extends Model
         'type_language_id' => 'required',
 //        'disability_status_id' => 'required',
         'english_image' => [],
+        'direction_id' => ['required']
     ];
     public $rules_update = [
       'last_name' => ['min:2','max:255' , 'regex:/^[a-zA-Z .,\'`]*$/'],
@@ -336,6 +337,10 @@ class Petition extends Model
     public function user()
     {
         return $this->belongsTo(User::class,'user_id' , 'id');
+    }
+
+    public function direction(){
+        return $this->belongsTo(Direction::class , 'direction_id' , 'id');
     }
 
 }

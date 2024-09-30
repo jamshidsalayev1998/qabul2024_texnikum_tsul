@@ -421,7 +421,7 @@
                 </div>
             </div>
 
-            <div class="form_one faculty_id high_school_id type_education_id type_language_id disability_description disability_status_id olympics recommendation">
+            <div class="form_one faculty_id high_school_id type_education_id type_language_id disability_description disability_status_id direction_id olympics recommendation">
                 <div class="top">
                     <b>@lang('petition.Faculty Selection')</b>
                 </div>
@@ -476,6 +476,18 @@
                                     <option @if($petition->type_language_id == $item->id) selected
                                             @endif value="{{ $item->id }}">{{ $item->$name_l }}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                        <div class="divinput direction_id" id="directions_div">
+                            <h2>@lang('petition.Faculties') <span class="color-red">*</span> <b
+                                        id="direction_id_error">@error('direction_id')
+                                    ! {{ $message }} @enderror</b></h2>
+                            <select id="direction_id" class="in_direction_id input_disable"
+                                    name="direction_id" style="width: 100%;">
+                                    @foreach($directions as $direction)
+                                        <option @if(old('direction_id') == $direction->id) selected
+                                                @endif @if($petition->direction_id == $direction->id) selected @endif value="{{ $direction->id }}">{{ $direction->$name_l }}</option>
+                                    @endforeach
                             </select>
                         </div>
                         <div class="divinput recommendation">
@@ -724,6 +736,23 @@
 
 
 @section('js')
+<script>
+    $(document).ready(function() {
+        function toggleDirectionsDiv() {
+            if ($('#faculty_type_edu').val() == '3') {
+                $('#directions_div').hide();
+            } else {
+                $('#directions_div').show();
+            }
+        }
+
+        // Initial check
+        toggleDirectionsDiv();
+
+        // Add event listener for change
+        $('#faculty_type_edu').on('change', toggleDirectionsDiv);
+    });
+</script>
     <script type="text/javascript">
         $('#image_doc').bind('change', function () {
             console.log('lalal');

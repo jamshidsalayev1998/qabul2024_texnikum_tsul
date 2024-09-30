@@ -37,7 +37,7 @@ class PetitionAccExport implements FromView, ShouldAutoSize, ShouldQueue, WithCo
             'english_degree_student:id,name_uz,name_ru,name_en',
             'faculty:id,name_uz,name_ru,name_en',
             'disability_status:id,name_uz,name_ru,name_en',
-            'user',
+            'user','direction'
         ])
         ->where('status', 2)->where(function ($query) {
             $user = Auth::user();

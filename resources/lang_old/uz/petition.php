@@ -105,7 +105,7 @@ return [
     'Mehnat daftarchasi (magistrlar uchun)' => 'Mehnat daftarchasi (Magistratura uchun)',
     'Mehnat daftarchasi nusxasini yuklang' => 'Mehnat daftarchasi nusxasini yuklang (Magistratura uchun)',
 //    'Мазкур сайт алоҳида тоифадаги абитуриентларни ТДЮУ магистратурасига кириш учун рўйхатдан ўтиши учун мўлжалланган.' => "Mazkur sayt TDYU magistraturasiga ayrim toifadagi abituriyentlarni va Adliya vazirligi yuridik texnikumining hududiy adliya organi yo'llanmasi bo'yicha kirayotgan bitiruvchilarini bakalavriatga qabul qilish uchun mo'ljallangan",
-    'Мазкур сайт алоҳида тоифадаги абитуриентларни ТДЮУ магистратурасига кириш учун рўйхатдан ўтиши учун мўлжалланган.' => "Mazkur sayt Texnikum bitiruvchilarini bakalavriatga qabul qilish uchun mo'ljallangan",
+    'Мазкур сайт алоҳида тоифадаги абитуриентларни ТДЮУ магистратурасига кириш учун рўйхатдан ўтиши учун мўлжалланган.' => "Mazkur sayt litsey bitiruvchilarini bakalavriatga qabul qilish uchun mo'ljallangan",
     'Qo`shimcha hujjarlar' => 'Qo`shimcha hujjarlar',
     'Upload Diploma application (Upload only diploma application)' => 'Diplom ilovasini yuklang',
 
@@ -119,7 +119,7 @@ return [
     'Ish faoliyati' => 'Mehnat faoliyatim',
     'Suhbat tili' => 'Suhbat o\'tkazish tili',
     '3 yil ishlash majburiyati' => 'Magistraturada o\'qishni tugatgandan so`ng kamida uch yil uzluksiz ishlash majburiyati bilan tanishdim',
-     'Faculties' => 'Fakultet'
+    'Faculties' => 'Fakultet'
 
 ];
 

@@ -1,6 +1,6 @@
 <table>
 @php $locale = App::getLocale(); $name_l = 'name_'.$locale; @endphp
-	
+
 	<thead>
 		<tr>
 			<td>
@@ -74,19 +74,19 @@
 				Faculty
 			</td>
 			<td>
-				Type of education 
+				Type of education
 			</td>
 			<td>
-				Language of education 
+				Language of education
 			</td>
 			<td>
-				Disability 
+				Disability
 			</td>
 			<td>
-				Disability info 
+				Disability info
 			</td>
 			<td>
-				Univer
+				Fakultet
 			</td>
 
 		</tr>
@@ -111,13 +111,13 @@
 				{{ $item->birth_date }}
 			</td>
 			<td>
-				{{ $item->country->$name_l ?? ''}}
+{{--				{{ $item->country->$name_l}}--}}
 			</td>
 			<td>
-				{{ $item->region->$name_l ?? '' }}
+{{--				{{ $item->region->$name_l }}--}}
 			</td>
 			<td>
-				{{ $item->area->$name_l ?? '' }}
+{{--				{{ $item->area->$name_l }}--}}
 			</td>
 			<td>
 				{{ $item->address }}
@@ -133,8 +133,8 @@
 			</td>
 			<td>
 				tel: {!!  $item->home_phone !!}
-				
-				
+
+
 			</td>
 			<td>
 				tel: {!! $item->mother_phone !!}
@@ -180,15 +180,17 @@
 				{{ $item->type_language->$name_l }}
 			</td>
 			<td>
-				{{ $item->disability_status->$name_l ?? ''}}
+{{--				{{ $item->disability_status->$name_l }}--}}
 			</td>
 			<td>
 				{{ $item->disability_description }}
 			</td>
 			<td>
-				{{ $item->high_school->$name_l }}
+				@if ($item->direction)
+                {{ $item->direction->$name_l }}
+                @endif
 			</td>
-			
+
 		</tr>
 		@endforeach
 	</tbody>
